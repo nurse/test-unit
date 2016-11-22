@@ -112,7 +112,7 @@ module Test
         return if @test_case.nil? or !@test_case.respond_to?(:startup)
         begin
           @test_case.startup
-        rescue Exception
+        rescue StandardError
           raise unless handle_exception($!, result)
         end
       end
@@ -155,7 +155,7 @@ module Test
         return if @test_case.nil? or !@test_case.respond_to?(:shutdown)
         begin
           @test_case.shutdown
-        rescue Exception
+        rescue StandardError
           raise unless handle_exception($!, result)
         end
       end

@@ -1313,7 +1313,7 @@ EOT
             begin
               yield
               false
-            rescue Exception => exception
+            rescue StandardError => exception
               true
             end
           end
