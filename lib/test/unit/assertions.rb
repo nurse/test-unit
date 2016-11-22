@@ -626,7 +626,7 @@ EOT
           assert_exception_helper = AssertExceptionHelper.new(self, args)
           begin
             yield
-          rescue Exception => e
+          rescue StandardError => e
             if ((args.empty? && !e.instance_of?(AssertionFailedError)) ||
                 assert_exception_helper.expected?(e))
               failure_message = build_message(message, "Exception raised:\n?", e)
