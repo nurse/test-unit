@@ -1673,7 +1673,7 @@ EOT
             begin
               yield
               false
-            rescue Exception => actual_exception
+            rescue StandardError => actual_exception
               true
             end
           end

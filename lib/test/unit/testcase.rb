@@ -475,7 +475,7 @@ module Test
                   run_test
                   run_cleanup
                   add_pass
-                rescue Exception
+                rescue StandardError
                   @internal_data.interrupted
                   unless handle_exception($!)
                     processed_exception_in_setup = true
@@ -485,7 +485,7 @@ module Test
                 end
               end
             end
-          rescue Exception
+          rescue StandardError
             if processed_exception_in_setup
               raise
             else
@@ -495,7 +495,7 @@ module Test
           ensure
             begin
               run_teardown
-            rescue Exception
+            rescue StandardError
               raise unless handle_exception($!)
             end
           end
